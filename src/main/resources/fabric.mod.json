@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "modid",
+	"id": "ajsbrewing",
 	"version": "${version}",
 	"name": "Example mod",
 	"description": "This is an example description! Tell everyone what your mod is about!",
@@ -12,20 +12,20 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
+	"icon": "icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.example.ExampleMod"
+          "com.ajsbrewing.AJsBrewingMod"
 		],
 		"client": [
-			"com.example.ExampleModClient"
+			"com.ajsbrewing.AJsBrewingModClient"
 		]
 	},
 	"mixins": [
-		"modid.mixins.json",
+		"ajsbrewing.mixins.json",
 		{
-			"config": "modid.client.mixins.json",
+			"config": "ajsbrewing.client.mixins.json",
 			"environment": "client"
 		}
 	],

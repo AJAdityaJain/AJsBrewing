@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "ajsbrewing:item/vial_overlay",
+        "layer1": "ajsbrewing:item/vial"
+    }
+}

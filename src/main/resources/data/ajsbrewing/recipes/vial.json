@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "G G",
+    "G G",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "tag": "minecraft:glass"
+    }
+  },
+  "result": {
+    "item": "ajsbrewing:empty_vial",
+    "count": 8
+  }
+}
+
