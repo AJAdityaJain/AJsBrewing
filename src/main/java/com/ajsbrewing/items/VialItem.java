@@ -1,5 +1,6 @@
-package com.ajsbrewing;
+package com.ajsbrewing.items;
 
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
@@ -16,6 +17,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
@@ -25,6 +27,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class VialItem extends Item implements Vanishable{
+    public static VialItem INSTANCE = new VialItem(new FabricItemSettings()
+            .maxDamage(16)
+            .rarity(Rarity.UNCOMMON)
+    );
     public VialItem(Settings settings) {
         super(settings);
     }
@@ -59,7 +65,7 @@ public class VialItem extends Item implements Vanishable{
             stack.damage(1, playerEntity, (e) -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
 
             if(!stack.isDamaged() &&!stack.isDamageable() && (stack.getDamage() == 0)){
-                return new ItemStack(AJsBrewingMod.EMPTY_VIAL);
+                return new ItemStack(INSTANCE);
             }
 
         }

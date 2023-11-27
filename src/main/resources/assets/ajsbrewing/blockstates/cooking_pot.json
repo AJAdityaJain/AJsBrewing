@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "filled=false,facing=north": { "model": "ajsbrewing:block/cooking_pot", "uvlock": false },
+    "filled=false,facing=east":  { "model": "ajsbrewing:block/cooking_pot", "y":  90, "uvlock": false },
+    "filled=false,facing=south": { "model": "ajsbrewing:block/cooking_pot", "y": 180, "uvlock": false },
+    "filled=false,facing=west":  { "model": "ajsbrewing:block/cooking_pot", "y": 270, "uvlock": false },
+
+    "filled=true,facing=north": { "model": "ajsbrewing:block/cooking_pot_filled", "uvlock": false },
+    "filled=true,facing=east":  { "model": "ajsbrewing:block/cooking_pot_filled", "y":  90, "uvlock": false },
+    "filled=true,facing=south": { "model": "ajsbrewing:block/cooking_pot_filled", "y": 180, "uvlock": false },
+    "filled=true,facing=west":  { "model": "ajsbrewing:block/cooking_pot_filled", "y": 270, "uvlock": false}
+
+  }
+}
+

@@ -1,44 +1,54 @@
 package com.ajsbrewing;
 
+import com.ajsbrewing.blocks.CookingPot;
+import com.ajsbrewing.blocks.CookingPotEntity;
+import com.ajsbrewing.effects.NumbnessStatusEffect;
+import com.ajsbrewing.items.EmptyVialItem;
+import com.ajsbrewing.items.VialItem;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.entity.effect.StatusEffect;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Rarity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class AJsBrewingMod implements ModInitializer {
 
-	public static final Logger LOGGER = LoggerFactory.getLogger("AJsBrewing");
-	public static final VialItem VIAL = new VialItem(new FabricItemSettings()
-			.maxDamage(16)
-			.rarity(Rarity.UNCOMMON)
-	);
-	public static final EmptyVialItem EMPTY_VIAL = new EmptyVialItem(new FabricItemSettings());
+	public static final String MOD_ID = "ajsbrewing";
+	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static final StatusEffect EXP = new ExpStatusEffect();
+	public static final BlockEntityType<CookingPotEntity> COOKING_POT_ENTITY_TYPE = Registry.register(
+			Registries.BLOCK_ENTITY_TYPE,
+			new Identifier(MOD_ID, "cooking_pot_entity"),
+			FabricBlockEntityTypeBuilder.create(CookingPotEntity::new, CookingPot.INSTANCE).build()
+	);
 
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Initializing Mod");
 
- 		Registry.register(Registries.ITEM, new Identifier("ajsbrewing", "vial"), VIAL);
-		Registry.register(Registries.ITEM, new Identifier("ajsbrewing", "empty_vial"), EMPTY_VIAL);
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "vial"), VialItem.INSTANCE);
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "empty_vial"), EmptyVialItem.INSTANCE);
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "cooking_pot"), CookingPot.ITEM_INSTANCE);
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
-			content.add(VIAL);
-			content.add(EMPTY_VIAL);
+			content.add(VialItem.INSTANCE);
+			content.add(EmptyVialItem.INSTANCE);
+			content.add(CookingPot.ITEM_INSTANCE);
 		});
 
 		LOGGER.info("Items Registered");
 
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "cooking_pot"), CookingPot.INSTANCE);
 
-		Registry.register(Registries.STATUS_EFFECT, new Identifier("ajsbrewing", "exp"), EXP);
+		LOGGER.info("Blocks Registered");
+
+		Registry.register(Registries.STATUS_EFFECT, new Identifier(MOD_ID, "numbness"), NumbnessStatusEffect.INSTANCE);
+		LOGGER.info("Status Effects Registered");
 
 
 		LOGGER.info("Mod Finished Initializing");
