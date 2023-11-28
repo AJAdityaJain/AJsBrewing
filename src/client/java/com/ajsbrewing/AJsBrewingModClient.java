@@ -10,16 +10,15 @@ public class AJsBrewingModClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 
-			ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
+		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
 					if (tintIndex == 0)
 						return VialItem.getColor(stack);
 					return 0xFFFFFF;
 				}
 				, VialItem.INSTANCE);
-
 		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
-			if(view.getBlockEntity(pos) instanceof CookingPotEntity pot){
-				return pot.color;
+			if (view.getBlockEntity(pos) instanceof CookingPotEntity pot) {
+				return pot.getColor();
 
 			}
 			return 0xFFFFFF;

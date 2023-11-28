@@ -1,0 +1,10 @@
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:glow_berries"
+  },
+  "effect": "minecraft:night_vision",
+  "duration": 3600,
+  "amplifier": 1,
+  "seed": 0
+}

@@ -6,7 +6,7 @@
           "entries": [
             {
               "type": "minecraft:item",
-              "name": "ajsbrewing:cooking_pot",
+              "name": "ajsbrewing:cooking_pot"
 
             }
           ],

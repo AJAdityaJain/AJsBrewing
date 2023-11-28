@@ -50,6 +50,8 @@ public class AJsBrewingMod implements ModInitializer {
 		Registry.register(Registries.STATUS_EFFECT, new Identifier(MOD_ID, "numbness"), NumbnessStatusEffect.INSTANCE);
 		LOGGER.info("Status Effects Registered");
 
+		Registry.register(Registries.RECIPE_SERIALIZER, PotionCookingRecipeSerializer.ID, PotionCookingRecipeSerializer.INSTANCE);
+		Registry.register(Registries.RECIPE_TYPE, new Identifier("ajsbrewing", PotionCookingRecipe.Type.ID), PotionCookingRecipe.Type.INSTANCE);
 
 		LOGGER.info("Mod Finished Initializing");
 	}
