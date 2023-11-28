@@ -31,13 +31,10 @@ public class CookingPotEntity extends BlockEntity {
 
     public void setColor(int color) {
         this.color = color;
-
-    }
-    public void setColor(int color, World world) {
-        this.color = color;
         AJsBrewingMod.LOGGER.info("Setting color to " + color);
-        world.updateListeners(pos, getCachedState(),  getCachedState(), 3);
-        world.markDirty(pos);
+        if(this.getWorld() == null) return;
+        this.getWorld().updateListeners(pos, getCachedState(),  getCachedState(), 3);
+        this.getWorld().markDirty(pos);
 
     }
 
@@ -45,7 +42,7 @@ public class CookingPotEntity extends BlockEntity {
         return color;
     }
 
-    public static VoxelShape INSIDE_SHAPE = Block.createCuboidShape(2.0, 3.0, 2.0, 14.0, 12.0, 14.0);
+    public static VoxelShape INSIDE_SHAPE = Block.createCuboidShape(3.0, 3.0, 3.0, 13.0, 12.0, 13.0);
 
     public List<StatusEffectInstance> effects = new ArrayList<>();
 
@@ -131,7 +128,7 @@ public class CookingPotEntity extends BlockEntity {
                                         match.get().value().amplifier
                                 )
                         );
-                        blockEntity.setColor(match.get().value().effect.getColor(),world);
+                        blockEntity.setColor(match.get().value().effect.getColor());
 
                         world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), 10, false)
                                 .giveItemStack(match.get().value().getResult(world.getRegistryManager()));

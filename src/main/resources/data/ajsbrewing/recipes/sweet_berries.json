@@ -1,0 +1,10 @@
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:sweet_berries"
+  },
+  "effect": "minecraft:saturation",
+  "duration": 4000,
+  "amplifier": 10,
+  "seed": 0
+}

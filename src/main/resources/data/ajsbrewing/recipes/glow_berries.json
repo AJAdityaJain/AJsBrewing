@@ -5,6 +5,6 @@
   },
   "effect": "minecraft:night_vision",
   "duration": 3600,
-  "amplifier": 1,
+  "amplifier": 4,
   "seed": 0
 }
