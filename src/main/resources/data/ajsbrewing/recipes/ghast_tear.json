@@ -1,0 +1,20 @@
+
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:ghast_tear"
+  },
+  "seed": 21,
+  "effects": [
+    {
+      "effect": "minecraft:resistance",
+      "duration": 360,
+      "amplifier": 2
+    },
+    {
+      "effect": "minecraft:blindness",
+      "duration": 160,
+      "amplifier": 1
+    }
+  ]
+}

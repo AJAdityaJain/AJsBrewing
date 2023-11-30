@@ -1,0 +1,20 @@
+
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:glowstone_dust"
+  },
+  "seed": 100,
+  "effects": [
+    {
+      "effect": "minecraft:glowing",
+      "duration": 1800,
+      "amplifier": 1
+    },
+    {
+      "effect": "minecraft:invisibility",
+      "duration": 1800,
+      "amplifier": 1
+    }
+  ]
+}

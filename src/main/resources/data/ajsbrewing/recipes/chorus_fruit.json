@@ -1,0 +1,20 @@
+
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:chorus_fruit"
+  },
+  "seed": 83,
+  "effects": [
+    {
+      "effect": "minecraft:levitation",
+      "duration": 200,
+      "amplifier": 1
+    },
+    {
+      "effect": "minecraft:hunger",
+      "duration": 150,
+      "amplifier": 1
+    }
+  ]
+}

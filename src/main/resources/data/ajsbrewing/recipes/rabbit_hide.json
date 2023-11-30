@@ -1,0 +1,20 @@
+
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:rabbit_hide"
+  },
+  "seed": 85,
+  "effects": [
+    {
+      "effect": "minecraft:jump_boost",
+      "duration": 700,
+      "amplifier": 1
+    },
+    {
+      "effect": "minecraft:instant_damage",
+      "duration": 20,
+      "amplifier": 1
+    }
+  ]
+}

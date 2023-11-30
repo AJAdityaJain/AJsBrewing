@@ -1,0 +1,20 @@
+
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:spider_eye"
+  },
+  "seed": 34,
+  "effects": [
+    {
+      "effect": "minecraft:poison",
+      "duration": 100,
+      "amplifier": 1
+    },
+    {
+      "effect": "minecraft:night_vision",
+      "duration": 1300,
+      "amplifier": 1
+    }
+  ]
+}

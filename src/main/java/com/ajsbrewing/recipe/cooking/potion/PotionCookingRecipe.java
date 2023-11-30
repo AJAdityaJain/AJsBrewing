@@ -1,4 +1,4 @@
-package com.ajsbrewing;
+package com.ajsbrewing.recipe.cooking.potion;
 
 import com.ajsbrewing.blocks.CookingPot;
 import com.ajsbrewing.items.VialItem;
@@ -16,29 +16,31 @@ import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PotionCookingRecipe implements Recipe<SimpleInventory> {
     public final Ingredient input;
 
-    public final StatusEffect effect;
-
-    public final int duration;
-
-    public final int amplifier;
-
     public final int seed;
+    public final List<RecipeEffectInstance> effects;
 
-    public PotionCookingRecipe(Ingredient input, String effect, int duration, int amplifier, int seed) {
+
+//    public PotionCookingRecipe(Ingredient input, int seed, RecipeEffectInstance... effect) {
+//        this.input = input;
+//        this.effects = List.of(effect);
+//        this.seed = seed;
+//    }
+
+    public PotionCookingRecipe(Ingredient input, int seed, List<RecipeEffectInstance> effect) {
         this.input = input;
-        this.effect = Registries.STATUS_EFFECT.get(Identifier.tryParse(effect));
-        this.duration = duration;
-        this.amplifier = amplifier;
+        this.effects = effect;
         this.seed = seed;
     }
-    public String getEffect() {
-        return effect.getName().getString();
-    }
+
+    //    public String getEffect() {
+//        return effect.getName().getString();
+//    }
 
     @Override
     public boolean matches(SimpleInventory inventory, World world) {
@@ -57,13 +59,19 @@ public class PotionCookingRecipe implements Recipe<SimpleInventory> {
         return false;
     }
 
+    public List<StatusEffectInstance> getEffects(){
+        List<StatusEffectInstance> effs = new ArrayList<>();
+        for (RecipeEffectInstance e : effects) {
+            StatusEffect s = Registries.STATUS_EFFECT.get(new Identifier(e.effect));
+            assert s != null ;
+            effs.add(new StatusEffectInstance(s, e.duration, e.amplifier, true, true, false));
+        }
+        return effs;
+    }
     @Override
     public ItemStack getResult(DynamicRegistryManager registryManager) {
-        AJsBrewingMod.LOGGER.info("Amplifier: " + this.amplifier);
-        AJsBrewingMod.LOGGER.info("Duration: " + this.duration);
-        return PotionUtil.setCustomPotionEffects(new ItemStack(VialItem.INSTANCE, 1),
-                List.of(new StatusEffectInstance(this.effect, this.duration, this.amplifier, true, true, false))
-        );
+
+        return PotionUtil.setCustomPotionEffects(new ItemStack(VialItem.INSTANCE, 1),getEffects());
     }
 
     @Override

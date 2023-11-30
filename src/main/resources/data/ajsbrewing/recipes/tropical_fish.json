@@ -1,0 +1,25 @@
+
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:tropical_fish"
+  },
+  "seed": 45,
+  "effects": [
+    {
+      "effect": "minecraft:dolphins_grace",
+      "duration": 700,
+      "amplifier": 1
+    },
+    {
+      "effect": "minecraft:mining_fatigue",
+      "duration": 1800,
+      "amplifier": 3
+    },
+    {
+      "effect": "minecraft:water_breathing",
+      "duration": 1400,
+      "amplifier": 1
+    }
+  ]
+}

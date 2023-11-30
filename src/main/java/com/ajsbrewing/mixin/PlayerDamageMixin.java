@@ -28,9 +28,10 @@ public abstract class PlayerDamageMixin {
             cir.cancel();
         } else {
             PlayerData playerState = StateSaverAndLoader.getPlayerState(entity);
-            entity.setHealth(entity.getHealth() - ((playerState.numbness*2)+amount));
-
-            playerState.numbness = 0;
+            if(playerState.numbness > 0){
+                entity.setHealth(entity.getHealth() - ((playerState.numbness*2)+amount));
+                playerState.numbness = 0;
+            }
         }
     }
 }

@@ -1,0 +1,20 @@
+
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:magma_cream"
+  },
+  "seed": 45,
+  "effects": [
+    {
+      "effect": "minecraft:fire_resistance",
+      "duration": 1000,
+      "amplifier": 1
+    },
+    {
+      "effect": "minecraft:wither",
+      "duration": 200,
+      "amplifier": 1
+    }
+  ]
+}

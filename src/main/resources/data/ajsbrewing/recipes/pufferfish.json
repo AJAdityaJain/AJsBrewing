@@ -1,0 +1,20 @@
+
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:pufferfish"
+  },
+  "seed": 61,
+  "effects": [
+    {
+      "effect": "minecraft:nausea",
+      "duration": 250,
+      "amplifier": 1
+    },
+    {
+      "effect": "minecraft:conduit_power",
+      "duration": 3000,
+      "amplifier": 2
+    }
+  ]
+}

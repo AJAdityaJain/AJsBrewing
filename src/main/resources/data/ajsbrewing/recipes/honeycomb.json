@@ -1,0 +1,20 @@
+
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:honeycomb"
+  },
+  "seed": 120,
+  "effects": [
+    {
+      "effect": "minecraft:unluck",
+      "duration": 800,
+      "amplifier": 1
+    },
+    {
+      "effect": "minecraft:haste",
+      "duration": 2400,
+      "amplifier": 1
+    }
+  ]
+}

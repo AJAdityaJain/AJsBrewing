@@ -1,0 +1,15 @@
+
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:prismarine_crystals"
+  },
+  "seed": 92,
+  "effects": [
+    {
+      "effect": "minecraft:dolphins_grace",
+      "duration": 900,
+      "amplifier": 1
+    }
+  ]
+}

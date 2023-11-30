@@ -1,13 +1,14 @@
+
 {
   "type": "ajsbrewing:potion_cooking_recipe",
   "input": {
-    "item": "minecraft:glow_berries"
+    "item": "minecraft:slime_ball"
   },
-  "seed": 0,
+  "seed": 125,
   "effects": [
     {
-      "effect": "minecraft:glowing",
-      "duration": 360,
+      "effect": "minecraft:jump_boost",
+      "duration": 1800,
       "amplifier": 1
     }
   ]

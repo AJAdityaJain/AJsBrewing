@@ -1,0 +1,25 @@
+
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:beetroot"
+  },
+  "seed": 78,
+  "effects": [
+    {
+      "effect": "minecraft:regeneration",
+      "duration": 700,
+      "amplifier": 1
+    },
+    {
+      "effect": "minecraft:hunger",
+      "duration": 300,
+      "amplifier": 1
+    },
+    {
+      "effect": "minecraft:slowness",
+      "duration": 500,
+      "amplifier": 1
+    }
+  ]
+}

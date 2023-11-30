@@ -1,0 +1,15 @@
+
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:rabbit_foot"
+  },
+  "seed": 103,
+  "effects": [
+    {
+      "effect": "minecraft:luck",
+      "duration": 1800,
+      "amplifier": 4
+    }
+  ]
+}

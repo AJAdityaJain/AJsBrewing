@@ -65,7 +65,7 @@ public class VialItem extends Item implements Vanishable{
             stack.damage(1, playerEntity, (e) -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
 
             if(!stack.isDamaged() &&!stack.isDamageable() && (stack.getDamage() == 0)){
-                return new ItemStack(INSTANCE);
+                return new ItemStack(EmptyVialItem.INSTANCE);
             }
 
         }
@@ -88,32 +88,31 @@ public class VialItem extends Item implements Vanishable{
         return ItemUsage.consumeHeldItem(world, user, hand);
     }
 
-    public static int getColor(ItemStack stack){
+    public static int getColor(List<StatusEffectInstance> list){
 
-        List<StatusEffectInstance> list = PotionUtil.getPotionEffects(stack);
-    if(list.size() == 0){
-        return 0xFFFFFF;
+    if(list.isEmpty()){
+        return 0x3152b0;
     }
         int sumRed = 0;
         int sumGreen = 0;
         int sumBlue = 0;
+        int t = 0;
 
         // Convert hexadecimal colors to RGB values and accumulate the sums
         for(StatusEffectInstance statusEffectInstance : list) {
             int hexColor = statusEffectInstance.getEffectType().getColor();
-            int red = (hexColor >> 16) & 0xFF;
-            int green = (hexColor >> 8) & 0xFF;
-            int blue = hexColor & 0xFF;
+            int a = statusEffectInstance.getAmplifier();
 
-            sumRed += red;
-            sumGreen += green;
-            sumBlue += blue;
+            sumRed += ((hexColor >> 16) & 0xFF) * a;
+            sumGreen += ((hexColor >> 8) & 0xFF) * a;
+            sumBlue += (hexColor & 0xFF) * a;
+            t += a;
         }
 
         // Calculate the average RGB values
-        int averageRed = sumRed / list.size();
-        int averageGreen = sumGreen / list.size();
-        int averageBlue = sumBlue / list.size();
+        int averageRed = sumRed / t;
+        int averageGreen = sumGreen / t;
+        int averageBlue = sumBlue / t;
 
         // Create the average color using the RGB values
 
@@ -121,9 +120,7 @@ public class VialItem extends Item implements Vanishable{
         return (averageRed << 16) | (averageGreen << 8) | averageBlue;
     }
 
-//    public String getTranslationKey(ItemStack stack) {
-//        return PotionUtil.getPotion(stack).finishTranslationKey(this.getTranslationKey() + ".effect.");
-//    }
+
     public int getEnchantability() {
         return 0;
     }

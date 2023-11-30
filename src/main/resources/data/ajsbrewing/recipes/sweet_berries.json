@@ -3,8 +3,12 @@
   "input": {
     "item": "minecraft:sweet_berries"
   },
-  "effect": "minecraft:saturation",
-  "duration": 4000,
-  "amplifier": 10,
-  "seed": 0
+  "seed": 0,
+  "effects": [
+    {
+      "effect": "minecraft:saturation",
+      "duration": 400,
+      "amplifier": 2
+    }
+  ]
 }

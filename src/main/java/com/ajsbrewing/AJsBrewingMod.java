@@ -5,6 +5,8 @@ import com.ajsbrewing.blocks.CookingPotEntity;
 import com.ajsbrewing.effects.NumbnessStatusEffect;
 import com.ajsbrewing.items.EmptyVialItem;
 import com.ajsbrewing.items.VialItem;
+import com.ajsbrewing.recipe.cooking.potion.PotionCookingRecipe;
+import com.ajsbrewing.recipe.cooking.potion.PotionCookingRecipeSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -52,6 +54,8 @@ public class AJsBrewingMod implements ModInitializer {
 
 		Registry.register(Registries.RECIPE_SERIALIZER, PotionCookingRecipeSerializer.ID, PotionCookingRecipeSerializer.INSTANCE);
 		Registry.register(Registries.RECIPE_TYPE, new Identifier("ajsbrewing", PotionCookingRecipe.Type.ID), PotionCookingRecipe.Type.INSTANCE);
+
+		LOGGER.info("Recipes Registered");
 
 		LOGGER.info("Mod Finished Initializing");
 	}
