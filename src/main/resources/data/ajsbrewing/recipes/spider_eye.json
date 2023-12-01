@@ -9,12 +9,12 @@
     {
       "effect": "minecraft:poison",
       "duration": 100,
-      "amplifier": 1
+      "amplifier": 0
     },
     {
       "effect": "minecraft:night_vision",
       "duration": 1300,
-      "amplifier": 1
+      "amplifier": 0
     }
   ]
 }

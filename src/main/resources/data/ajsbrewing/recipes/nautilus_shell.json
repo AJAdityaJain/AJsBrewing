@@ -9,7 +9,7 @@
     {
       "effect": "minecraft:resistance",
       "duration": 900,
-      "amplifier": 1
+      "amplifier": 0
     },
     {
       "effect": "minecraft:conduit_power",

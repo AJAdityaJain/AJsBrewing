@@ -1,0 +1,11 @@
+{
+  "block.ajsbrewing.cooking_pot": "Cooking Pot",
+  "item.ajsbrewing.cooking_pot": "Cooking Pot",
+  "item.ajsbrewing.vial": "Vial",
+  "item.ajsbrewing.empty_vial": "Empty Vial",
+  "effect.ajsbrewing.numbness": "Numbness",
+  "effect.ajsbrewing.fiery": "Fiery",
+  "effect.ajsbrewing.chill": "Chill",
+  "advancements.adventure.fire_and_ice.description": "Get the Fiery and Chill effects at the same time",
+  "advancements.adventure.fire_and_ice.title": "Fire and Ice"
+}

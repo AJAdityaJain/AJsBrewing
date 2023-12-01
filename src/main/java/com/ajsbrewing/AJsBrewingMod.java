@@ -2,6 +2,8 @@ package com.ajsbrewing;
 
 import com.ajsbrewing.blocks.CookingPot;
 import com.ajsbrewing.blocks.CookingPotEntity;
+import com.ajsbrewing.effects.ChillStatusEffect;
+import com.ajsbrewing.effects.FieryStatusEffect;
 import com.ajsbrewing.effects.NumbnessStatusEffect;
 import com.ajsbrewing.items.EmptyVialItem;
 import com.ajsbrewing.items.VialItem;
@@ -50,6 +52,8 @@ public class AJsBrewingMod implements ModInitializer {
 		LOGGER.info("Blocks Registered");
 
 		Registry.register(Registries.STATUS_EFFECT, new Identifier(MOD_ID, "numbness"), NumbnessStatusEffect.INSTANCE);
+		Registry.register(Registries.STATUS_EFFECT, new Identifier(MOD_ID, "fiery"), FieryStatusEffect.INSTANCE);
+		Registry.register(Registries.STATUS_EFFECT, new Identifier(MOD_ID, "chill"), ChillStatusEffect.INSTANCE);
 		LOGGER.info("Status Effects Registered");
 
 		Registry.register(Registries.RECIPE_SERIALIZER, PotionCookingRecipeSerializer.ID, PotionCookingRecipeSerializer.INSTANCE);

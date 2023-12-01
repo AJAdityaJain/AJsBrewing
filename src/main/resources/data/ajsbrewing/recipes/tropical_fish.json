@@ -14,12 +14,12 @@
     {
       "effect": "minecraft:mining_fatigue",
       "duration": 1800,
-      "amplifier": 3
+      "amplifier": 2
     },
     {
       "effect": "minecraft:water_breathing",
       "duration": 1400,
-      "amplifier": 1
+      "amplifier": 0
     }
   ]
 }

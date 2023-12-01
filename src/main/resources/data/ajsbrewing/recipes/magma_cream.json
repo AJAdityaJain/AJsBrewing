@@ -9,12 +9,12 @@
     {
       "effect": "minecraft:fire_resistance",
       "duration": 1000,
-      "amplifier": 1
+      "amplifier": 0
     },
     {
       "effect": "minecraft:wither",
       "duration": 200,
-      "amplifier": 1
+      "amplifier": 0
     }
   ]
 }

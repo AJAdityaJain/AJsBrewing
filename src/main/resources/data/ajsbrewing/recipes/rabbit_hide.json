@@ -9,12 +9,12 @@
     {
       "effect": "minecraft:jump_boost",
       "duration": 700,
-      "amplifier": 1
+      "amplifier": 0
     },
     {
       "effect": "minecraft:instant_damage",
       "duration": 20,
-      "amplifier": 1
+      "amplifier": 0
     }
   ]
 }

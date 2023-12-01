@@ -9,12 +9,12 @@
     {
       "effect": "minecraft:levitation",
       "duration": 200,
-      "amplifier": 1
+      "amplifier": 0
     },
     {
       "effect": "minecraft:hunger",
       "duration": 150,
-      "amplifier": 1
+      "amplifier": 0
     }
   ]
 }

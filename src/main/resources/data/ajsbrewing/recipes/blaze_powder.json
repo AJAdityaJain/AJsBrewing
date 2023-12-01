@@ -9,12 +9,12 @@
     {
       "effect": "minecraft:fire_resistance",
       "duration": 1600,
-      "amplifier": 1
+      "amplifier": 0
     },
     {
       "effect": "minecraft:resistance",
       "duration": 1600,
-      "amplifier": 1
+      "amplifier": 0
     }
   ]
 }

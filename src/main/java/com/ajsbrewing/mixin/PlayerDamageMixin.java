@@ -1,17 +1,17 @@
 package com.ajsbrewing.mixin;
 
-import com.ajsbrewing.PlayerData;
-import com.ajsbrewing.StateSaverAndLoader;
+import com.ajsbrewing.data.PlayerData;
+import com.ajsbrewing.data.StateSaverAndLoader;
 import com.ajsbrewing.effects.NumbnessStatusEffect;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 // PlayerDamageMixin.java
-@Mixin(LivingEntity.class)
+@Mixin(PlayerEntity.class)
 public abstract class PlayerDamageMixin {
   @Inject(
             method = "damage(Lnet/minecraft/entity/damage/DamageSource;F)Z",
@@ -19,7 +19,7 @@ public abstract class PlayerDamageMixin {
             cancellable = true)
     private void onPlayerDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
 
-        LivingEntity entity = (LivingEntity) (Object) this;
+        PlayerEntity entity = (PlayerEntity) (Object) this;
 
         if (entity.hasStatusEffect(NumbnessStatusEffect.INSTANCE)) {
             PlayerData playerState = StateSaverAndLoader.getPlayerState(entity);

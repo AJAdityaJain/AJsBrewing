@@ -9,7 +9,7 @@
     {
       "effect": "minecraft:unluck",
       "duration": 800,
-      "amplifier": 1
+      "amplifier": 2
     },
     {
       "effect": "minecraft:haste",

@@ -9,12 +9,12 @@
     {
       "effect": "minecraft:glowing",
       "duration": 1800,
-      "amplifier": 1
+      "amplifier": 0
     },
     {
       "effect": "minecraft:invisibility",
       "duration": 1800,
-      "amplifier": 1
+      "amplifier": 0
     }
   ]
 }

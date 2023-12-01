@@ -14,12 +14,12 @@
     {
       "effect": "minecraft:hunger",
       "duration": 300,
-      "amplifier": 1
+      "amplifier": 0
     },
     {
       "effect": "minecraft:slowness",
       "duration": 500,
-      "amplifier": 1
+      "amplifier": 0
     }
   ]
 }

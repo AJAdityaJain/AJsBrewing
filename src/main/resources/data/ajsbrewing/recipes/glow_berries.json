@@ -8,7 +8,7 @@
     {
       "effect": "minecraft:glowing",
       "duration": 360,
-      "amplifier": 1
+      "amplifier": 0
     }
   ]
 }

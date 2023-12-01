@@ -106,7 +106,7 @@ public class VialItem extends Item implements Vanishable{
             sumRed += ((hexColor >> 16) & 0xFF) * a;
             sumGreen += ((hexColor >> 8) & 0xFF) * a;
             sumBlue += (hexColor & 0xFF) * a;
-            t += a;
+            t += a+1;
         }
 
         // Calculate the average RGB values

@@ -9,12 +9,12 @@
     {
       "effect": "minecraft:resistance",
       "duration": 360,
-      "amplifier": 2
+      "amplifier": 1
     },
     {
       "effect": "minecraft:blindness",
       "duration": 160,
-      "amplifier": 1
+      "amplifier": 0
     }
   ]
 }
