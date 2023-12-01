@@ -1,0 +1,15 @@
+
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:fermented_spider_eye"
+  },
+  "seed": 87,
+  "effects": [
+    {
+      "effect": "ajsbrewing:numbness",
+      "duration": 5200,
+      "amplifier": 0
+    }
+  ]
+}

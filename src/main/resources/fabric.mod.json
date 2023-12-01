@@ -2,14 +2,14 @@
 	"schemaVersion": 1,
 	"id": "ajsbrewing",
 	"version": "${version}",
-	"name": "Example mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "AJ's Brewing",
+	"description": "This my first Mod! Added new way to craft potions with cooking pots.\nInfinite recipe combinations and new status effects!",
 	"authors": [
-		"Me!"
+		"Aditya Jain!"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/AJAdityaJain/AJsBrewing"
 	},
 	"license": "CC0-1.0",
 	"icon": "icon.png",

@@ -2,13 +2,13 @@
 {
   "type": "ajsbrewing:potion_cooking_recipe",
   "input": {
-    "item": "minecraft:magma_cream"
+    "item": "minecraft:brown_mushroom"
   },
-  "seed": 45,
+  "seed": 60,
   "effects": [
     {
-      "effect": "ajsbrewing:fiery",
-      "duration": 2000,
+      "effect": "ajsbrewing:chill",
+      "duration": 5200,
       "amplifier": 0
     }
   ]
