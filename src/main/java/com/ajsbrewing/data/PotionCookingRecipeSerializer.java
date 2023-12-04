@@ -1,4 +1,4 @@
-package com.ajsbrewing.recipe.cooking.potion;
+package com.ajsbrewing.data;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

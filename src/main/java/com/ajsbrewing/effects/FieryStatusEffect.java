@@ -3,6 +3,7 @@ package com.ajsbrewing.effects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.random.LocalRandom;
 
@@ -38,7 +39,7 @@ public class FieryStatusEffect extends StatusEffect {
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
         int amp = (amplifier +2);
-        if (entity.isOnFire() && !entity.isFireImmune()) {
+        if (entity.isOnFire() && !entity.hasStatusEffect(StatusEffects.FIRE_RESISTANCE)) {
             for (int i = 0; i < amp; i++) {
                 double theta = RANDOM.nextFloat() * Math.PI * 2;
                 double phi = RANDOM.nextFloat() * Math.PI * 2;

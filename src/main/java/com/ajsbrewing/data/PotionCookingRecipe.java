@@ -1,4 +1,4 @@
-package com.ajsbrewing.recipe.cooking.potion;
+package com.ajsbrewing.data;
 
 import com.ajsbrewing.blocks.CookingPot;
 import com.ajsbrewing.items.VialItem;

@@ -101,12 +101,12 @@ public class VialItem extends Item implements Vanishable{
         // Convert hexadecimal colors to RGB values and accumulate the sums
         for(StatusEffectInstance statusEffectInstance : list) {
             int hexColor = statusEffectInstance.getEffectType().getColor();
-            int a = statusEffectInstance.getAmplifier();
+            int a = statusEffectInstance.getAmplifier()+1;
 
             sumRed += ((hexColor >> 16) & 0xFF) * a;
             sumGreen += ((hexColor >> 8) & 0xFF) * a;
             sumBlue += (hexColor & 0xFF) * a;
-            t += a+1;
+            t += a;
         }
 
         // Calculate the average RGB values
