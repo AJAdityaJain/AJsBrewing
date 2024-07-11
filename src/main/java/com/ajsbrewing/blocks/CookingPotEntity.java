@@ -4,19 +4,13 @@ import com.ajsbrewing.AJsBrewingMod;
 import com.ajsbrewing.items.VialItem;
 import com.ajsbrewing.data.PotionCookingRecipe;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.inventory.SimpleInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.*;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
@@ -32,27 +26,14 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
-enum PREPARERS {
-    MAGMA(2),
-    FIRE(3),
-    SOUL_FIRE(4),
-    LAVA(5);
-
-    public final int value;
-    PREPARERS(int value) {
-        this.value = value;
-    }
-}
-
 public class CookingPotEntity extends BlockEntity  {
-    int color;
-    int seed;
     public static VoxelShape INSIDE_SHAPE = Block.createCuboidShape(3.0, 3.0, 3.0, 13.0, 12.0, 13.0);
 
-    
     private List<StatusEffectInstance> effects = new ArrayList<>();
     private List<ItemStack> ingredients = new ArrayList<>();
-    private PREPARERS preparer = PREPARERS.MAGMA;
+    private Preparers preparer = Preparers.UNKNOWN;
+    private int color;
+    private int seed = 0;
 
     
     public void addEffect(StatusEffectInstance effect) {
@@ -85,6 +66,8 @@ public class CookingPotEntity extends BlockEntity  {
     public int getColor() {
         return color;
     }
+
+
 
 
     public CookingPotEntity(BlockPos pos, BlockState state) {
@@ -140,7 +123,7 @@ public class CookingPotEntity extends BlockEntity  {
         }
 
 
-        for (PREPARERS p : PREPARERS.values()) {
+        for (Preparers p : Preparers.values()) {
             if (p.value == nbt.getInt("preparer")) {
                 preparer = p;
                 break;
@@ -161,12 +144,13 @@ public class CookingPotEntity extends BlockEntity  {
         return createNbt();
     }
 
-    public static boolean onEntityCollided(World world, BlockPos pos, BlockState state, Entity entity, CookingPotEntity blockEntity) {
-        if (entity instanceof ItemEntity itemEntity) {
+    public boolean onEntityCollided(World world, BlockPos pos, BlockState state, ItemEntity entity) {
+
+        if (!world.isClient() ) {
             if (
-                    !itemEntity.getStack().isEmpty() &&
+                    !entity.getStack().isEmpty() &&
                             VoxelShapes.matchesAnywhere(
-                                    VoxelShapes.cuboid(itemEntity.getBoundingBox().offset(
+                                    VoxelShapes.cuboid(entity.getBoundingBox().offset(
                                             (double) (-pos.getX()),
                                             (double) (-pos.getY()),
                                             (double) (-pos.getZ())
@@ -174,17 +158,15 @@ public class CookingPotEntity extends BlockEntity  {
                                     CookingPotEntity.INSIDE_SHAPE,
                                     BooleanBiFunction.AND)
             ) {
-                if (!world.isClient()) {
-                    SimpleInventory inv = new SimpleInventory(itemEntity.getStack());
-                    Optional<RecipeEntry<PotionCookingRecipe>> match = world.getRecipeManager()
-                            .getFirstMatch(PotionCookingRecipe.Type.INSTANCE, inv, world);
-                    if (match.isPresent()) {
-                        blockEntity.addIngredient(match.get().value());
-                        itemEntity.kill();
-                        return true;
-                    } else {
-                        itemEntity.setVelocity(-0.069f, .23f, 0.05f);
-                    }
+                SimpleInventory inv = new SimpleInventory(entity.getStack());
+                Optional<RecipeEntry<PotionCookingRecipe>> match = world.getRecipeManager()
+                        .getFirstMatch(PotionCookingRecipe.Type.INSTANCE, inv, world);
+                if (match.isPresent()) {
+                    addIngredient(match.get().value());
+                    entity.kill();
+                    return true;
+                } else {
+                    entity.setVelocity(-0.069f, .23f, 0.05f);
                 }
             }
         }
@@ -204,10 +186,7 @@ public class CookingPotEntity extends BlockEntity  {
 
     public ItemStack getPotionItem() {
         Random random = new Random(seed);
-
         int e = preparer.value;
-        AJsBrewingMod.LOGGER.info(preparer.name());
-
         List<StatusEffectInstance> SE = new ArrayList<>();
         for(int i = 0; i < e; i++) {
             if (effects.isEmpty()) break;
@@ -225,13 +204,14 @@ public class CookingPotEntity extends BlockEntity  {
 
     public void setPreparer(BlockState preparer) {
         if (preparer.isOf(Blocks.SOUL_FIRE)) {
-            this.preparer = PREPARERS.SOUL_FIRE;
+            this.preparer = Preparers.SOUL_FIRE;
         } else if (preparer.isOf(Blocks.FIRE)) {
-            this.preparer = PREPARERS.FIRE;
+            this.preparer = Preparers.FIRE;
         } else if (preparer.isOf(Blocks.LAVA)) {
-            this.preparer = PREPARERS.LAVA;
+            this.preparer = Preparers.LAVA;
         } else {
-            this.preparer = PREPARERS.MAGMA;
+            this.preparer = Preparers.MAGMA;
         }
+        AJsBrewingMod.LOGGER.info(this.preparer.name());
     }
 }

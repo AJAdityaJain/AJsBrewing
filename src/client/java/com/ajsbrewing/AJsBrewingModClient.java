@@ -6,8 +6,6 @@ import com.ajsbrewing.items.VialItem;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.potion.PotionUtil;
 
 public class AJsBrewingModClient implements ClientModInitializer {

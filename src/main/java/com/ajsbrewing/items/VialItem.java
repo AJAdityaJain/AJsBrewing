@@ -7,10 +7,8 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsage;
-import net.minecraft.item.Vanishable;
+import net.minecraft.entity.projectile.thrown.PotionEntity;
+import net.minecraft.item.*;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -74,6 +72,23 @@ public class VialItem extends Item implements Vanishable{
     }
 
 
+    public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
+
+        if (!world.isClient) {
+            PotionEntity potionEntity = new PotionEntity(world, user);
+            potionEntity.setItem(stack);
+            potionEntity.setVelocity(user, user.getPitch(), user.getYaw(), -20.0F, 0.5F, 1.0F);
+            world.spawnEntity(potionEntity);
+        }
+        if(user instanceof PlayerEntity playerEntity){
+            playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+            if (!playerEntity.getAbilities().creativeMode) {
+                stack.decrement(1);
+            }
+        }
+    }
+
+
     public int getMaxUseTime(ItemStack stack) {
         return 16;
     }
@@ -83,8 +98,6 @@ public class VialItem extends Item implements Vanishable{
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-//        PotionItem
-//        PotionUtil.getColor(PotionUtil.getPotionEffects(user.getStackInHand(hand)));
         return ItemUsage.consumeHeldItem(world, user, hand);
     }
 
@@ -125,6 +138,9 @@ public class VialItem extends Item implements Vanishable{
         return 0;
     }
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+//        PotionUtil.buildTooltip(stack, tooltip, 1.0F, world == null ? 20.0F : world.getTickManager().getTickRate());
+//        PotionItem
         PotionUtil.buildTooltip(stack, tooltip, 1.0F);
+
     }
 }

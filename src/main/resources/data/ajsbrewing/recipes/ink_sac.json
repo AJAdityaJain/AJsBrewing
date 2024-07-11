@@ -1,0 +1,15 @@
+
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:ink_sac"
+  },
+  "seed": 106,
+  "effects": [
+    {
+      "effect": "minecraft:water_breathing",
+      "duration": 240,
+      "amplifier": 0
+    }
+  ]
+}

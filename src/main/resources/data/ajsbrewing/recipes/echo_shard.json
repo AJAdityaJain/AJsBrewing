@@ -1,0 +1,15 @@
+
+{
+  "type": "ajsbrewing:potion_cooking_recipe",
+  "input": {
+    "item": "minecraft:echo_shard"
+  },
+  "seed": 52,
+  "effects": [
+    {
+      "effect": "minecraft:darkness",
+      "duration": 400,
+      "amplifier": 1
+    }
+  ]
+}

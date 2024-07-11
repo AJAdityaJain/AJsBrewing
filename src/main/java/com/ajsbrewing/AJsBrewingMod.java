@@ -5,11 +5,9 @@ import com.ajsbrewing.blocks.CookingPotEntity;
 import com.ajsbrewing.effects.ChillStatusEffect;
 import com.ajsbrewing.effects.FieryStatusEffect;
 import com.ajsbrewing.effects.NumbnessStatusEffect;
-import com.ajsbrewing.items.EmptyVialItem;
-import com.ajsbrewing.items.VialItem;
+import com.ajsbrewing.items.*;
 import com.ajsbrewing.data.PotionCookingRecipe;
 import com.ajsbrewing.data.PotionCookingRecipeSerializer;
-import com.ajsbrewing.items.WitchcraftTome;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -44,11 +42,11 @@ public class AJsBrewingMod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "cooking_pot"), CookingPot.ITEM_INSTANCE);
 		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "witchcraft_tome"), WitchcraftTome.INSTANCE);
 
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(content -> {
 			content.add(VialItem.INSTANCE);
 			content.add(EmptyVialItem.INSTANCE);
 			content.add(CookingPot.ITEM_INSTANCE);
-			content.add(WitchcraftTome.INSTANCE);
+//			content.add(WitchcraftTome.INSTANCE);
 		});
 
 		LOGGER.info("Items Registered");
